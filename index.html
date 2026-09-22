@@ -3,102 +3,254 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Dog Groom Room | Pet Spa Stanley</title>
+    <title>The Dog Groom Room | Luxury Pet Spa & Boutique Stanley</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
         .glass-panel {
-            background: rgba(6, 28, 23, 0.8);
+            background: rgba(6, 28, 23, 0.85);
             backdrop-filter: blur(16px);
             border: 1px solid rgba(16, 185, 129, 0.2);
         }
         .glass-active {
-            background: linear-gradient(135deg, rgba(6, 95, 70, 0.4) 0%, rgba(6, 28, 23, 0.9) 100%);
-            border: 1px solid rgba(16, 185, 129, 0.6);
-            box-shadow: 0 0 25px rgba(16, 185, 129, 0.2);
+            background: linear-gradient(135deg, rgba(6, 95, 70, 0.45) 0%, rgba(6, 28, 23, 0.95) 100%);
+            border: 1px solid rgba(16, 185, 129, 0.65);
+            box-shadow: 0 0 25px rgba(16, 185, 129, 0.25);
         }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 antialiased min-h-screen pb-12">
-    <header class="sticky top-0 z-50 glass-panel border-b border-emerald-950 px-4 py-3.5">
+<body class="bg-slate-950 text-slate-100 antialiased min-h-screen pb-16">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 glass-panel border-b border-emerald-950/80 px-4 py-3.5">
         <div class="max-w-md mx-auto flex justify-between items-center">
-            <div>
-                <h1 class="text-sm font-black tracking-wider text-emerald-100">THE DOG GROOM ROOM</h1>
-                <p class="text-[10px] text-emerald-400 font-bold uppercase tracking-widest">High Street, Stanley</p>
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-700 flex items-center justify-center border border-emerald-400/30">
+                    <i class="fa-solid fa-paw text-white text-sm"></i>
+                </div>
+                <div>
+                    <h1 class="text-xs font-black tracking-wider text-emerald-100 uppercase">THE DOG GROOM ROOM</h1>
+                    <p class="text-[10px] text-emerald-400 font-bold uppercase tracking-widest">High Street, Stanley</p>
+                </div>
             </div>
-            <a href="tel:01207239575" class="bg-emerald-500/20 text-emerald-300 text-xs px-3.5 py-2 rounded-xl font-bold border border-emerald-500/40">
-                <i class="fa-solid fa-phone"></i> Call
+            <a href="tel:01207239575" class="glass-panel hover:bg-slate-900 text-emerald-300 text-xs px-3.5 py-2 rounded-xl font-semibold border border-emerald-500/30 transition-all flex items-center gap-1.5">
+                <i class="fa-solid fa-phone"></i> <span>Call</span>
             </a>
         </div>
     </header>
 
     <main class="max-w-md mx-auto px-4 mt-5 space-y-5">
-        <div class="glass-panel p-6 rounded-3xl text-center space-y-3">
-            <span class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">
-                <i class="fa-solid fa-star text-amber-400"></i> 4.9 Star Rated Spa (240+ Reviews)
+
+        <!-- Hero Card -->
+        <div class="glass-panel p-6 rounded-3xl text-center space-y-3 relative overflow-hidden">
+            <span class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest inline-block">
+                <i class="fa-solid fa-star text-amber-400"></i> 4.9 Star Rated (240+ Local Reviews)
             </span>
-            <h2 class="text-2xl font-black text-emerald-100 uppercase tracking-tight">Gentle Care,<br><span class="text-emerald-400">Happy Tails.</span></h2>
-            <p class="text-xs text-slate-400">Select your dog breed size below for instant package pricing and deposit booking.</p>
+            <h2 class="text-2xl font-black text-emerald-100 uppercase tracking-tight">Stress-Free Grooming,<br><span class="text-emerald-400">Tailored To Your Pup.</span></h2>
+            <p class="text-xs text-slate-400 leading-relaxed">
+                Select your pet's size & service below to check real-time availability and calculate deposit slots.
+            </p>
         </div>
 
-        <div class="space-y-3">
-            <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Dog Size</span>
+        <!-- Breed Size Selector -->
+        <div class="space-y-2">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Step 1: Choose Breed Size</span>
             <div class="grid grid-cols-3 gap-2">
-                <button onclick="setSize(1.0, 's')" id="size-s" class="glass-active p-3 rounded-2xl flex flex-col items-center">
+                <button onclick="setSize('Small', 1.0)" id="size-Small" class="glass-active p-3 rounded-2xl flex flex-col items-center transition-all">
                     <i class="fa-solid fa-dog text-emerald-400 text-lg mb-1"></i>
-                    <span class="text-xs font-bold">Small</span>
-                    <span class="text-[10px] text-slate-400">e.g. Pug</span>
+                    <span class="text-xs font-bold text-white">Small</span>
+                    <span class="text-[9px] text-slate-400">Pug / Yorkie</span>
                 </button>
-                <button onclick="setSize(1.2, 'm')" id="size-m" class="glass-panel p-3 rounded-2xl flex flex-col items-center">
+                <button onclick="setSize('Medium', 1.25)" id="size-Medium" class="glass-panel p-3 rounded-2xl flex flex-col items-center transition-all">
                     <i class="fa-solid fa-dog text-slate-500 text-lg mb-1"></i>
-                    <span class="text-xs font-bold">Medium</span>
-                    <span class="text-[10px] text-slate-400">e.g. Spaniel</span>
+                    <span class="text-xs font-bold text-white">Medium</span>
+                    <span class="text-[9px] text-slate-400">Cocker Spaniel</span>
                 </button>
-                <button onclick="setSize(1.4, 'l')" id="size-l" class="glass-panel p-3 rounded-2xl flex flex-col items-center">
+                <button onclick="setSize('Large', 1.5)" id="size-Large" class="glass-panel p-3 rounded-2xl flex flex-col items-center transition-all">
                     <i class="fa-solid fa-dog text-slate-500 text-lg mb-1"></i>
-                    <span class="text-xs font-bold">Large</span>
-                    <span class="text-[10px] text-slate-400">e.g. Lab</span>
+                    <span class="text-xs font-bold text-white">Large / XL</span>
+                    <span class="text-[9px] text-slate-400">Labradoodle / Golden</span>
                 </button>
             </div>
         </div>
 
+        <!-- Menu Tabs -->
+        <div class="flex gap-2 bg-slate-900/80 p-1.5 rounded-2xl border border-slate-800 text-xs font-bold text-slate-400">
+            <button onclick="switchTab('full')" id="tab-full" class="flex-1 py-2 rounded-xl bg-emerald-600 text-white transition-all">Full Grooms</button>
+            <button onclick="switchTab('bath')" id="tab-bath" class="flex-1 py-2 rounded-xl hover:text-white transition-all">Bath & De-Shed</button>
+            <button onclick="switchTab('spa')" id="tab-spa" class="flex-1 py-2 rounded-xl hover:text-white transition-all">Spa Add-Ons</button>
+        </div>
+
+        <!-- Category 1: Full Grooms -->
+        <div id="cat-full" class="space-y-2.5">
+            <div onclick="selectService('Full Signature Styling', 38)" class="svc-card glass-active cursor-pointer p-4 rounded-2xl flex justify-between items-center transition-all">
+                <div>
+                    <h3 class="font-bold text-white text-sm">Full Signature Styling</h3>
+                    <p class="text-xs text-slate-400">Hydrobath, warm blow dry, full clip/hand scissor, ear cleaning & nail trim.</p>
+                </div>
+                <span class="price-tag text-emerald-400 font-extrabold text-lg">£38.00</span>
+            </div>
+
+            <div onclick="selectService('Puppy First Intro Groom', 25)" class="svc-card glass-panel cursor-pointer p-4 rounded-2xl flex justify-between items-center transition-all">
+                <div>
+                    <h3 class="font-bold text-white text-sm">Puppy Gentle Intro Session</h3>
+                    <p class="text-xs text-slate-400">Gentle splash bath, slow dryer acclimatisation, face trim & paw tidy (Up to 6 mos).</p>
+                </div>
+                <span class="price-tag text-white font-extrabold text-lg">£25.00</span>
+            </div>
+
+            <div onclick="selectService('Hand-Stripping Groom', 50)" class="svc-card glass-panel cursor-pointer p-4 rounded-2xl flex justify-between items-center transition-all">
+                <div>
+                    <h3 class="font-bold text-white text-sm">Hand-Stripping Groom</h3>
+                    <p class="text-xs text-slate-400">Traditional hand-stripping for wire-haired breeds, bath & sanitary trim.</p>
+                </div>
+                <span class="price-tag text-white font-extrabold text-lg">£50.00</span>
+            </div>
+        </div>
+
+        <!-- Category 2: Bath & De-Shed -->
+        <div id="cat-bath" class="space-y-2.5 hidden">
+            <div onclick="selectService('Bath, Dry & De-Shed', 28)" class="svc-card glass-panel cursor-pointer p-4 rounded-2xl flex justify-between items-center transition-all">
+                <div>
+                    <h3 class="font-bold text-white text-sm">Bath, Blow-Out & De-Shed</h3>
+                    <p class="text-xs text-slate-400">Deep coat wash, high-velocity dead-coat blow out, undercoat rake & nail clip.</p>
+                </div>
+                <span class="price-tag text-white font-extrabold text-lg">£28.00</span>
+            </div>
+
+            <div onclick="selectService('Hygiene & Paw Maintenance', 20)" class="svc-card glass-panel cursor-pointer p-4 rounded-2xl flex justify-between items-center transition-all">
+                <div>
+                    <h3 class="font-bold text-white text-sm">Hygiene & Paw Tidy Visit</h3>
+                    <p class="text-xs text-slate-400">Face tidy, pad balm conditioning, sanitary clear, and precision nail clipping.</p>
+                </div>
+                <span class="price-tag text-white font-extrabold text-lg">£20.00</span>
+            </div>
+        </div>
+
+        <!-- Category 3: Spa Add-Ons -->
+        <div id="cat-spa" class="space-y-2.5 hidden">
+            <div onclick="selectService('Ultrasonic Teeth Cleaning', 18)" class="svc-card glass-panel cursor-pointer p-4 rounded-2xl flex justify-between items-center transition-all">
+                <div>
+                    <h3 class="font-bold text-white text-sm">Ultrasonic Teeth Cleaning</h3>
+                    <p class="text-xs text-slate-400">Non-vibrating, silent tartar breakdown & breath freshening treatment.</p>
+                </div>
+                <span class="price-tag text-white font-extrabold text-lg">£18.00</span>
+            </div>
+
+            <div onclick="selectService('Blueberry Facial & Paw Butter', 12)" class="svc-card glass-panel cursor-pointer p-4 rounded-2xl flex justify-between items-center transition-all">
+                <div>
+                    <h3 class="font-bold text-white text-sm">Blueberry Tear-Stain Facial & Paw Butter</h3>
+                    <p class="text-xs text-slate-400">Soothing tear-stain cleanser & organic honey pad balm treatment.</p>
+                </div>
+                <span class="price-tag text-white font-extrabold text-lg">£12.00</span>
+            </div>
+        </div>
+
+        <!-- Selected Service & Deposit Summary -->
         <div class="glass-panel p-5 rounded-3xl space-y-4 border-emerald-500/30">
+            <div class="pb-3 border-b border-slate-800 flex justify-between items-center">
+                <div>
+                    <span class="text-[10px] uppercase font-bold tracking-wider text-emerald-400 block mb-0.5">Selected Package</span>
+                    <p id="selected-title" class="text-sm font-bold text-white">Full Signature Styling</p>
+                </div>
+                <span id="selected-size-badge" class="bg-emerald-500/10 text-emerald-300 text-[10px] font-bold px-2.5 py-1 rounded-lg border border-emerald-500/30">
+                    Small Dog
+                </span>
+            </div>
+
             <div class="flex justify-between items-center pb-3 border-b border-slate-800">
                 <div>
-                    <p class="text-[11px] text-slate-400">Full Groom Total</p>
-                    <p id="total" class="text-2xl font-black text-white">£35.00</p>
+                    <p class="text-[11px] text-slate-400">Estimated Total</p>
+                    <p id="total" class="text-2xl font-black text-white">£38.00</p>
                 </div>
                 <div class="text-right">
                     <p class="text-[11px] text-emerald-400 font-bold">Deposit Due (25%)</p>
-                    <p id="deposit" class="text-2xl font-black text-emerald-400">£8.75</p>
+                    <p id="deposit" class="text-2xl font-black text-emerald-400">£9.50</p>
                 </div>
             </div>
-            <form onsubmit="event.preventDefault(); alert('Demo request submitted!');" class="space-y-2.5">
-                <input type="text" placeholder="Dog's Name & Breed" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-white outline-none focus:border-emerald-500">
-                <input type="tel" placeholder="Owner's WhatsApp Number" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-white outline-none focus:border-emerald-500">
-                <button type="submit" class="w-full bg-emerald-600 text-white font-bold py-3.5 rounded-xl text-xs uppercase tracking-wider shadow-lg shadow-emerald-600/30">
-                    Book Grooming Session
+
+            <!-- Booking Form -->
+            <form onsubmit="event.preventDefault(); alert('Demo Request Submitted! On a live site, this locks the grooming slot and collects the £' + document.getElementById('deposit').innerText + ' deposit.');" class="space-y-2.5">
+                <div>
+                    <label class="block text-[10px] font-semibold text-slate-400 mb-1">Dog's Name & Breed</label>
+                    <input type="text" placeholder="e.g. Bella (Cockapoo)" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-white outline-none focus:border-emerald-500 transition-all">
+                </div>
+                <div>
+                    <label class="block text-[10px] font-semibold text-slate-400 mb-1">Owner WhatsApp Number</label>
+                    <input type="tel" placeholder="e.g. 07123 456789" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-white outline-none focus:border-emerald-500 transition-all">
+                </div>
+                <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 rounded-xl text-xs uppercase tracking-wider shadow-lg shadow-emerald-600/30 transition-all mt-2">
+                    Reserve Grooming Appointment
                 </button>
             </form>
         </div>
+
     </main>
 
     <script>
-        let mult = 1.0;
-        function setSize(m, id) {
-            mult = m;
+        let selectedSize = 'Small';
+        let sizeMultiplier = 1.0;
+        let basePrice = 38;
+        let currentServiceName = 'Full Signature Styling';
+
+        function setSize(size, mult) {
+            selectedSize = size;
+            sizeMultiplier = mult;
+
+            // Update size buttons UI
             document.querySelectorAll('[id^="size-"]').forEach(btn => {
-                btn.className = 'glass-panel p-3 rounded-2xl flex flex-col items-center';
+                btn.className = 'glass-panel p-3 rounded-2xl flex flex-col items-center transition-all';
                 btn.querySelector('i').className = 'fa-solid fa-dog text-slate-500 text-lg mb-1';
             });
-            const active = document.getElementById('size-' + id);
-            active.className = 'glass-active p-3 rounded-2xl flex flex-col items-center';
+            const active = document.getElementById('size-' + size);
+            active.className = 'glass-active p-3 rounded-2xl flex flex-col items-center transition-all';
             active.querySelector('i').className = 'fa-solid fa-dog text-emerald-400 text-lg mb-1';
-            const tot = 35 * mult;
-            document.getElementById('total').innerText = '£' + tot.toFixed(2);
-            document.getElementById('deposit').innerText = '£' + (tot * 0.25).toFixed(2);
+
+            document.getElementById('selected-size-badge').innerText = size + ' Dog';
+            updateTotals();
+        }
+
+        function switchTab(tab) {
+            document.getElementById('cat-full').classList.add('hidden');
+            document.getElementById('cat-bath').classList.add('hidden');
+            document.getElementById('cat-spa').classList.add('hidden');
+
+            document.querySelectorAll('[id^="tab-"]').forEach(btn => {
+                btn.className = 'flex-1 py-2 rounded-xl hover:text-white transition-all';
+            });
+
+            document.getElementById('cat-' + tab).classList.remove('hidden');
+            document.getElementById('tab-' + tab).className = 'flex-1 py-2 rounded-xl bg-emerald-600 text-white transition-all';
+        }
+
+        function selectService(name, price) {
+            basePrice = price;
+            currentServiceName = name;
+
+            document.querySelectorAll('.svc-card').forEach(card => {
+                card.className = 'svc-card glass-panel cursor-pointer p-4 rounded-2xl flex justify-between items-center transition-all';
+                const tag = card.querySelector('.price-tag');
+                if(tag) tag.className = 'price-tag text-white font-extrabold text-lg';
+            });
+
+            if (event && event.currentTarget) {
+                event.currentTarget.className = 'svc-card glass-active cursor-pointer p-4 rounded-2xl flex justify-between items-center transition-all';
+                const activeTag = event.currentTarget.querySelector('.price-tag');
+                if(activeTag) activeTag.className = 'price-tag text-emerald-400 font-extrabold text-lg';
+            }
+
+            document.getElementById('selected-title').innerText = name;
+            updateTotals();
+        }
+
+        function updateTotals() {
+            let finalPrice = basePrice * sizeMultiplier;
+            let deposit = finalPrice * 0.25;
+
+            document.getElementById('total').innerText = '£' + finalPrice.toFixed(2);
+            document.getElementById('deposit').innerText = '£' + deposit.toFixed(2);
         }
     </script>
 </body>
